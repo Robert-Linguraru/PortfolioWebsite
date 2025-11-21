@@ -15,16 +15,16 @@ export interface Project {
   id: string;
   name: string;
   description: string;
-  imageUrl: string;
+  image: string;
   link: string;
+  github?: string;
+  tags?: string[];
 }
 
 export interface Certificate {
-  id: string;
   name: string;
-  imageUrl: string;
+  image: string;
   issuedBy: string;
-  date: string;
 }
 
 export interface TechStack {
@@ -38,49 +38,65 @@ export const projects: Project[] = [
     id: "1",
     name: "Waypoint - AI driving app",
     description: "Work in progress, a waypoint map, ai trained to give routes.",
-    imageUrl: "/images/waypoint.png",
-    link: "#",
+    image: "src/assets/img/wip.png",
+    link: "https://github.com/Robert-Linguraru",
+    github: "https://github.com/Robert-Linguraru",
+    tags: ["React-Native", "AI" ]
   },
   {
     id: "2",
     name: "AI - EEG Reader",
-    description: "completed a project that utilizes AI to read EEG data and perform actions(blinking).",
-    imageUrl: "/images/eeg-reader.png",
-    link: "#"
+    description: "Completed a project that utilizes AI to read EEG data and perform actions(blinking).",
+    image: "src/assets/img/astra.jpeg",
+    link: "https://github.com/Robert-Linguraru/BrainBit-EEG-Experiments-with-AI",
+    github: "https://github.com/Robert-Linguraru/BrainBit-EEG-Experiments-with-AI",
+    tags: ["Python", "AI" ]
   },
   {
     id: "3",
     name: "Nail Salon Website",
     description: "A personal project solicited by a nail salon.",
-    imageUrl: "/images/nail-salon.png",
-    link: "#",
+    image: "src/assets/img/sabinails.png",
+    link: "https://www.sabinails.com/",
+    github: "https://github.com/Robert-Linguraru/nails-site",
+    tags: ["HTML", "CSS", "Javascript" ]
   },
   {
     id: "4",
     name: "OmniFood - Food Delivery App",
     description: "A food delivery app built with HTML, CSS and Javascript.",
-    imageUrl: "/images/omnifood.png",
-    link: "#",
+    image: "src/assets/img/omnifood.jpg",
+    link: "https://github.com/Robert-Linguraru/Omnifood",
+    github: "https://github.com/Robert-Linguraru/Omnifood",
+    tags: ["HTML", "CSS", "Javascript" ]
+  },  
+  {
+    id: "5",
+    name: "E-commerce Website - Book Store",
+    description: "Built using C#, ASP.NET Core MVC, EF Core and ASP.NET Core Identity.",
+    image: "src/assets/img/book.png",
+    link: "https://github.com/Robert-Linguraru/Bulky",
+    github: "https://github.com/Robert-Linguraru/Bulky",
+    tags: ["HTML", "CSS", "Javascript" ]
   }
-  // Add more projects here
 ];
 
 export const certificates: Certificate[] = [
   {
-    id: "1",
     name: "Web Development Fundamentals",
-    imageUrl: "/images/certificate-1.png",
-    issuedBy: "Dicoding",
-    date: "2023-01-15",
+    image: "/images/certificate-1.png",
+    issuedBy: "MateAcademy",
   },
   {
-    id: "2",
-    name: "React Basics",
-    imageUrl: "/images/certificate-2.png",
-    issuedBy: "Dicoding",
-    date: "2023-03-20",
+    name: "C# Programming Basics",
+    image: "/images/certificate-2.png",
+    issuedBy: "Udemy",
+  },  
+  {
+    name: "ASP.NET Core MVC, EF Core and ASP.NET Core Identity",
+    image: "/images/certificate-2.png",
+    issuedBy: "Udemy",
   },
-  // Add more certificates here
 ];
 
 export const techStack: TechStack[] = [
@@ -101,8 +117,8 @@ export const techStack: TechStack[] = [
   },
   {
     id: "4",
-    name: "Tailwind CSS",
-    iconComponent: IconTailwindCSS,
+    name: "Typescript",
+    iconComponent: IconTypescript,
   },
   {
     id: "5",
@@ -119,10 +135,10 @@ export const techStack: TechStack[] = [
     name: "Node JS",
     iconComponent: IconNodeJS,
   },
-  {
+    {
     id: "8",
-    name: "Typescript",
-    iconComponent: IconTypescript,
+    name: "Tailwind CSS",
+    iconComponent: IconTailwindCSS,
   },
   {
     id: "9",
@@ -134,5 +150,4 @@ export const techStack: TechStack[] = [
     name: "C#",
     iconComponent: IconCSharp,
   }
-  // Add more tech stack items here
 ];

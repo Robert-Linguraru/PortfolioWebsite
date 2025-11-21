@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const AboutHero = () => {
   return (
-    <section className="min-h-screen flex items-center px-8 pt-24">
+    <section id="about" className="min-h-screen flex items-center px-8 pt-24">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -23,7 +23,7 @@ const AboutHero = () => {
               transition={{ delay: 0.2 }}
             >
               <span className="text-xl">👋</span>
-              Hello, I'm a Software Developer
+              Hello!
             </motion.div>
 
             {/* Main Heading */}
@@ -95,7 +95,6 @@ const AboutHero = () => {
             </motion.div>
 
             {/* Social Icons */}
-            {/* Social Icons */}
             <motion.div
               className="flex gap-4 pt-2"
               initial={{ opacity: 0 }}
@@ -147,7 +146,8 @@ const AboutHero = () => {
               <img
                 src="src\assets\img\me.jpg"
                 alt="Your Name"
-                className="w-full h-auto rounded-2xl object-cover"
+                className="w-auto h-auto rounded-2xl object-cover"
+                loading="lazy"
               />
               
               {/* Optional: Decorative corner elements */}

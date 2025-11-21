@@ -18,7 +18,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   }, [onLoadingComplete]);
 
   return (
-    <motion.div
+    <div id="home">
+      <motion.div
       className="fixed inset-0 flex flex-col items-center justify-center"
       initial={{ opacity: 1 }}
       animate={{ opacity: isLoading ? 1 : 0 }}
@@ -95,6 +96,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         />
       </motion.div>
     </motion.div>
+    </div>
   );
 };
 

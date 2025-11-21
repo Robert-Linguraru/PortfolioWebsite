@@ -1,6 +1,5 @@
 import React from 'react';
-import { TechStack } from '../data/portfolioData';
-import './TechStackIcon.css';
+import type { TechStack } from '@/data/portfolioData';
 
 interface TechStackIconProps {
   tech: TechStack;
@@ -9,12 +8,13 @@ interface TechStackIconProps {
 const TechStackIcon: React.FC<TechStackIconProps> = ({ tech }) => {
   const IconComponent = tech.iconComponent;
   return (
-    <div className="tech-stack-icon">
-      <IconComponent className="tech-icon" title={tech.name}/>
+    <div className="w-20 h-20 flex items-center justify-center transition-transform hover:scale-110">
+      <IconComponent 
+        className="w-full h-full block" 
+        title={tech.name}
+      />
     </div>
   );
 };
 
 export default TechStackIcon;
-
-

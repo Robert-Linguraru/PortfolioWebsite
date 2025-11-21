@@ -1,43 +1,50 @@
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
 import { Particles } from '@/assets/ui/Particles';
 import LoadingScreen from '@/assets/components/LoadingScreen';
 import Navbar from '@/assets/components/Navbar';
 import AboutPage from '@/assets/components/AboutPage';
+import PortfolioShowcase from '@/assets/components/PortfolioShowcase';
+import ContactSection from '@/assets/components/ContactSection';
+import Footers from '@/assets/components/Footers';
 
 function App() {
   const [showLoading, setShowLoading] = useState(true);
+  const [hasLoadingCompleted, setHasLoadingCompleted] = useState(false);
 
-return (
+  const handleLoadingComplete = () => {
+    setShowLoading(false);
+    setHasLoadingCompleted(true);
+  };
+
+  return (
     <div className="relative min-h-screen bg-black">
-      {/* Dark overlay gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-slate-950/30 via-purple-950/30 to-slate-900/30" />
+      <div className="absolute inset-0 bg-linear-to-br from-slate-950/90 via-purple-950/60 to-slate-900/90" />
       
-      {/* Subtle particles */}
-      <Particles
-        className="absolute inset-0"
-        quantity={100}
-        ease={85}
-        color="#ffffff"
-        staticity={65}
-        size={0.35}
-      />
+      {/* Particles - always rendered, never unmounts */}
+        <Particles
+          className="absolute inset-0 pointer-events-none"  
+          quantity={40}        
+          ease={85}
+          color="#1e293b"
+          staticity={65}
+          size={0.35}
+          refresh={false}   
+        />
 
-      {/* Content */}
       <div className="relative z-10">
-        <AnimatePresence mode="wait">
-          {showLoading ? (
-            <LoadingScreen 
-              key="loading"
-              onLoadingComplete={() => setShowLoading(false)} 
-            />
-          ) : (
-            <>
-              <Navbar />
-              <AboutPage />
-            </>
-          )}
-        </AnimatePresence>
+        {/* Loading screen - conditionally rendered */}
+        {showLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+        
+        {/* Content - rendered once, never unmounts */}
+        {hasLoadingCompleted && (
+          <>
+            <Navbar />
+            <AboutPage />
+            <PortfolioShowcase />
+            <ContactSection />
+            <Footers />
+          </>
+        )}
       </div>
     </div>
   );
