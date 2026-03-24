@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const AboutHero = () => {
   return (
-    <section id="about" className="min-h-screen flex items-center px-8 pt-24">
+    <section id="about" className="min-h-screen flex items-center px-4 sm:px-6 md:px-8 pt-20 sm:pt-24">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -17,19 +17,19 @@ const AboutHero = () => {
           >
             {/* Small Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full text-purple-300 text-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full text-purple-300 text-xs sm:text-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <span className="text-xl">👋</span>
+              <span className="text-lg sm:text-xl">👋</span>
               Hello!
             </motion.div>
 
             {/* Main Heading */}
             <div>
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -37,7 +37,7 @@ const AboutHero = () => {
                 Software
               </motion.h1>
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-bold bg-linear-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-linear-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -48,7 +48,7 @@ const AboutHero = () => {
 
             {/* Description */}
             <motion.p
-              className="text-lg text-slate-400 leading-relaxed max-w-xl"
+              className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -58,7 +58,7 @@ const AboutHero = () => {
 
             {/* Tech Stack Pills */}
             <motion.div
-              className="flex flex-wrap gap-3"
+              className="flex flex-wrap gap-2 sm:gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -66,7 +66,7 @@ const AboutHero = () => {
               {['React', 'JS+Typescript', 'SQL', 'C# & .Net', 'Git'].map((tech, index) => (
                 <span
                   key={`${tech}-${index}`}
-                  className="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-sm hover:border-purple-400/50 transition-colors"
+                  className="px-3 sm:px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-300 text-xs sm:text-sm hover:border-purple-400/50 transition-colors"
                 >
                   {tech}
                 </span>
@@ -75,7 +75,7 @@ const AboutHero = () => {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
@@ -83,26 +83,33 @@ const AboutHero = () => {
                 <motion.a
                   href="/CV Robert 2026.pdf"
                   download="RobertClaudiu_CV.pdf"
-                  className="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors flex items-center gap-2"
+                  className="px-4 sm:px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Curriculum Vitae
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />                </svg>
                 </motion.a>
 
-              <button className="px-6 py-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 text-white font-semibold rounded-lg transition-colors flex items-center gap-2">
+              <motion.a
+                href="https://wa.me/40747466696?text=Hi%20Robert%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20you"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 sm:px-6 py-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Contact
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
-              </button>
+              </motion.a>
             </motion.div>
 
             {/* Social Icons */}
             <motion.div
-              className="flex gap-4 pt-2"
+              className="flex gap-3 pt-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -111,27 +118,27 @@ const AboutHero = () => {
                 href="https://github.com/Robert-Linguraru"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-slate-800/50 hover:bg-purple-500/20 border border-slate-700 hover:border-purple-400/50 rounded-lg transition-all"
+                className="w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center bg-slate-800/50 hover:bg-purple-500/20 border border-slate-700 hover:border-purple-400/50 rounded-lg transition-all"
               >
-                <FaGithub className="text-slate-400 hover:text-purple-400 text-xl" />
+                <FaGithub className="text-slate-400 hover:text-purple-400 text-lg sm:text-xl" />
               </a>
               
               <a
                 href="https://www.linkedin.com/in/robert-linguraru-0331752b9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-slate-800/50 hover:bg-purple-500/20 border border-slate-700 hover:border-purple-400/50 rounded-lg transition-all"
+                className="w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center bg-slate-800/50 hover:bg-purple-500/20 border border-slate-700 hover:border-purple-400/50 rounded-lg transition-all"
               >
-                <FaLinkedin className="text-slate-400 hover:text-purple-400 text-xl" />
+                <FaLinkedin className="text-slate-400 hover:text-purple-400 text-lg sm:text-xl" />
               </a>
               
               <a
                 href="https://www.instagram.com/robertclaud_/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-slate-800/50 hover:bg-purple-500/20 border border-slate-700 hover:border-purple-400/50 rounded-lg transition-all"
+                className="w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center bg-slate-800/50 hover:bg-purple-500/20 border border-slate-700 hover:border-purple-400/50 rounded-lg transition-all"
               >
-                <FaInstagram className="text-slate-400 hover:text-purple-400 text-xl" />
+                <FaInstagram className="text-slate-400 hover:text-purple-400 text-lg sm:text-xl" />
               </a>
             </motion.div>
           </motion.div>

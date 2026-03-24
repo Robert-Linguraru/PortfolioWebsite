@@ -19,17 +19,17 @@ const PortfolioShowcase = () => {
   ];
 
   return (
-    <section ref={ref} id="portfolio" className="min-h-screen py-20 px-8">
+    <section ref={ref} id="portfolio" className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6 }}
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -37,7 +37,7 @@ const PortfolioShowcase = () => {
             Portfolio Showcase
           </motion.h2>
           <motion.p
-            className="text-slate-400 text-lg max-w-2xl mx-auto"
+            className="text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -49,7 +49,7 @@ const PortfolioShowcase = () => {
 
         {/* Tabs */}
         <motion.div
-          className="flex justify-center gap-4 mb-12 flex-wrap"
+          className="flex justify-center gap-2 sm:gap-4 mb-12 flex-wrap"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -60,7 +60,7 @@ const PortfolioShowcase = () => {
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-4 rounded-xl font-semibold transition-all flex items-center gap-3 ${
+                className={`px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold transition-all flex items-center gap-2 text-sm sm:text-base ${
                   activeTab === tab.id
                     ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/50'
                     : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800 border border-slate-700'
@@ -71,8 +71,8 @@ const PortfolioShowcase = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon className="text-xl" />
-                {tab.label}
+                <Icon className="text-lg sm:text-xl" />
+                <span className="hidden sm:inline">{tab.label}</span>
               </motion.button>
             );
           })}

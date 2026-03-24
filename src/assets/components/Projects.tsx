@@ -15,7 +15,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, isInView }) => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
       transition={{ duration: 0.4 }}
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
     >
       {projects.map((project, index) => (
         <motion.div
@@ -27,36 +27,37 @@ const Projects: React.FC<ProjectsProps> = ({ projects, isInView }) => {
           whileHover={{ y: -5 }}
         >
           {/* Project Image */}
-          <div className="relative h-48 bg-slate-900/50 overflow-hidden">
+          <div className="relative h-40 sm:h-48 bg-slate-900/50 overflow-hidden">
             {project.image ? (
               <img 
                 src={project.image} 
                 alt={project.name} 
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             ) : (
               <>
                 <div className="absolute inset-0 bg-linear-to-br from-purple-500/20 to-blue-500/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <FaCode className="text-6xl text-slate-700" />
+                  <FaCode className="text-4xl sm:text-6xl text-slate-700" />
                 </div>
               </>
             )}
           </div>
 
           {/* Project Content */}
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+          <div className="p-4 sm:p-6">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
               {project.name}
             </h3>
-            <p className="text-slate-400 text-sm mb-4">{project.description}</p>
+            <p className="text-slate-400 text-xs sm:text-sm mb-4">{project.description}</p>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tags?.map((tags) => (
                 <span
                   key={tags}
-                  className="px-3 py-1 bg-slate-900/50 border border-slate-700 rounded-lg text-xs text-slate-300"
+                  className="px-2 sm:px-3 py-1 bg-slate-900/50 border border-slate-700 rounded-lg text-xs text-slate-300"
                 >
                   {tags}
                 </span>
@@ -69,20 +70,21 @@ const Projects: React.FC<ProjectsProps> = ({ projects, isInView }) => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-semibold"
+                className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-xs sm:text-sm font-semibold"
               >
                 <FaExternalLinkAlt className="text-xs" />
-                View Project
+                <span className="hidden sm:inline">View Project</span>
+                <span className="sm:hidden">View</span>
               </a>
               {project.github && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-slate-400 hover:text-purple-300 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 text-slate-400 hover:text-purple-300 text-xs sm:text-sm font-semibold"
                 >
                   <FaGithub />
-                  Code
+                  <span className="hidden sm:inline">Code</span>
                 </a>
               )}
             </div>

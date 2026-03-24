@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useReducedMotion } from '@/lib/useReducedMotion';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -7,15 +8,16 @@ interface LoadingScreenProps {
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-      setTimeout(onLoadingComplete, 800);
-    }, 2500);
+      setTimeout(onLoadingComplete, prefersReducedMotion ? 300 : 800);
+    }, prefersReducedMotion ? 1000 : 2500);
 
     return () => clearTimeout(timer);
-  }, [onLoadingComplete]);
+  }, [onLoadingComplete, prefersReducedMotion]);
 
   return (
     <div id="home">

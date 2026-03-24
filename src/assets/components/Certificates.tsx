@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { FaCertificate, FaAward, FaStar, FaTrophy, FaGem } from 'react-icons/fa';
 import type { Certificate } from '@/data/portfolioData';
 import type { IconType } from 'react-icons/lib';
+import { useReducedMotion } from '@/lib/useReducedMotion';
+import { useState, useEffect } from 'react';
 
 interface CertificatesProps {
   certificates: Certificate[];
@@ -9,6 +11,14 @@ interface CertificatesProps {
 }
 
 const Certificates: React.FC<CertificatesProps> = ({ certificates, isInView }) => {
+  const prefersReducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const iconMap: Record<string, IconType> = {
     web: FaAward,
     react: FaStar,
@@ -44,12 +54,13 @@ return (
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
       transition={{ duration: 0.4 }}
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
     >
       {certificates.map((cert, index) => {
-        // ✅ Pass cert.type instead of cert.name or cert.issuedBy
         const IconComponent = getIcon(cert.type);
         const gradient = getGradient(cert.type);
+        // Disable animations on mobile or when reduced motion is preferred
+        const shouldAnimate = !prefersReducedMotion && !isMobile;
 
         return (
           <motion.div
@@ -62,50 +73,56 @@ return (
               delay: 0.6 + index * 0.1,
               ease: "easeOut"
             }}
-            whileHover={{ 
+            whileHover={shouldAnimate ? { 
               y: -5,
               transition: { duration: 0.2, ease: "easeOut" }
-            }}
-            style={{ willChange: 'transform' }}
+            } : {}}
+            style={{ willChange: shouldAnimate ? 'transform' : 'auto' }}
           >
             {/* Rest of your component... */}
-            <div className="relative h-48 bg-slate-900/50 overflow-hidden flex items-center justify-center">
-              <motion.div
-                className={`absolute inset-0 bg-linear-to-br ${gradient} opacity-20`}
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
-              <motion.div
-                className={`absolute w-32 h-32 rounded-full bg-linear-to-br ${gradient} opacity-10 blur-2xl`}
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  x: [-20, 20, -20],
-                  y: [-10, 10, -10]
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
-              <motion.div
-                className={`absolute w-24 h-24 rounded-full bg-linear-to-br ${gradient} opacity-10 blur-xl`}
-                animate={{ 
-                  scale: [1.2, 1, 1.2],
-                  x: [20, -20, 20],
-                  y: [10, -10, 10]
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              />
+            <div className="relative h-40 sm:h-48 bg-slate-900/50 overflow-hidden flex items-center justify-center">
+              {shouldAnimate ? (
+                <>
+                  <motion.div
+                    className={`absolute inset-0 bg-linear-to-br ${gradient} opacity-20`}
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  
+                  <motion.div
+                    className={`absolute w-32 h-32 rounded-full bg-linear-to-br ${gradient} opacity-10 blur-2xl`}
+                    animate={{ 
+                      scale: [1, 1.3, 1],
+                      x: [-20, 20, -20],
+                      y: [-10, 10, -10]
+                    }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  
+                  <motion.div
+                    className={`absolute w-24 h-24 rounded-full bg-linear-to-br ${gradient} opacity-10 blur-xl`}
+                    animate={{ 
+                      scale: [1.2, 1, 1.2],
+                      x: [20, -20, 20],
+                      y: [10, -10, 10]
+                    }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  />
+                </>
+              ) : (
+                <div className={`absolute inset-0 bg-linear-to-br ${gradient} opacity-10`} />
+              )}
               
               <motion.div
                 className="relative z-10"
-                whileHover={{ 
+                whileHover={shouldAnimate ? { 
                   scale: 1.15,
                   rotate: [0, -5, 5, 0],
                   transition: { duration: 0.3 }
-                }}
+                } : {}}
               >
                 <IconComponent 
-                  className={`text-7xl bg-linear-to-br ${gradient} bg-clip-text text-transparent drop-shadow-lg`}
+                  className={`text-5xl sm:text-7xl bg-linear-to-br ${gradient} bg-clip-text text-transparent drop-shadow-lg`}
                 />
               </motion.div>
 
@@ -121,7 +138,7 @@ return (
             </div>
 
             <div className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
                 {cert.name}
               </h3>
               <p className="text-slate-400 text-sm flex items-center gap-2">
