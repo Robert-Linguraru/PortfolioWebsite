@@ -39,7 +39,7 @@ export const projects: Project[] = [
     id: "1",
     name: "Waypoint - AI driving app",
     description: "Work in progress, a waypoint map, ai trained to give routes.",
-    image: "src/assets/img/wip.png",
+    image: "/wip.png",
     link: "https://github.com/Robert-Linguraru",
     github: "https://github.com/Robert-Linguraru",
     tags: ["React-Native", "AI" ]
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     id: "2",
     name: "AI - EEG Reader",
     description: "Completed a project that utilizes AI to read EEG data and perform actions(blinking).",
-    image: "src/assets/img/astra.jpeg",
+    image: "/astra.jpeg",
     link: "https://github.com/Robert-Linguraru/BrainBit-EEG-Experiments-with-AI",
     github: "https://github.com/Robert-Linguraru/BrainBit-EEG-Experiments-with-AI",
     tags: ["Python", "AI" ]
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     id: "3",
     name: "Nail Salon Website",
     description: "A personal project solicited by a nail salon.",
-    image: "src/assets/img/sabinails.png",
+    image: "/sabinails.png",
     link: "https://www.sabinails.com/",
     github: "https://github.com/Robert-Linguraru/nails-site",
     tags: ["HTML", "CSS", "Javascript" ]
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     id: "4",
     name: "OmniFood - Food Delivery App",
     description: "A food delivery app built with HTML, CSS and Javascript.",
-    image: "src/assets/img/omnifood.jpg",
+    image: "/omnifood.jpg",
     link: "https://github.com/Robert-Linguraru/Omnifood",
     github: "https://github.com/Robert-Linguraru/Omnifood",
     tags: ["HTML", "CSS", "Javascript" ]
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     id: "5",
     name: "E-commerce Website - Book Store",
     description: "Built using C#, ASP.NET Core MVC, EF Core and ASP.NET Core Identity.",
-    image: "src/assets/img/book.png",
+    image: "/book.png",
     link: "https://github.com/Robert-Linguraru/Bulky",
     github: "https://github.com/Robert-Linguraru/Bulky",
     tags: ["C#", ".Net", "HTML/CSS/JS" ]

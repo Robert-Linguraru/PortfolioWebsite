@@ -82,7 +82,7 @@ const AboutHero = () => {
             >
                 <motion.a
                   href="/CV Robert 2026.pdf"
-                  download="RobertClaudiu_CV.pdf"
+                  download="CV Robert 2026.pdf"
                   className="px-4 sm:px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
