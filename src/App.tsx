@@ -23,11 +23,11 @@ function App() {
       {/* Particles - always rendered, never unmounts */}
         <Particles
           className="absolute inset-0 pointer-events-none"  
-          quantity={40}        
-          ease={85}
-          color="#1e293b"
-          staticity={65}
-          size={0.35}
+          quantity={100}        
+          ease={99}
+          color="#fff"
+          staticity={15}
+          size={0.45}
           refresh={false}   
         />
 

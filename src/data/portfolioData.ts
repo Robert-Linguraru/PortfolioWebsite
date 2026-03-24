@@ -8,8 +8,9 @@ import IconNodeJS from "../assets/icons/IconNodeJS";
 import IconTypescript from "../assets/icons/IconTypescript";
 import IconVite from "../assets/icons/IconVite";
 import IconCSharp from "../assets/icons/IconCSharp";
+import IconPython from "@/assets/icons/IconPython";
+import IconDotnet from "@/assets/icons/IconDotnet";
 import React from "react";
-
 
 export interface Project {
   id: string;
@@ -23,8 +24,8 @@ export interface Project {
 
 export interface Certificate {
   name: string;
-  image: string;
   issuedBy: string;
+  type: string; 
 }
 
 export interface TechStack {
@@ -77,26 +78,36 @@ export const projects: Project[] = [
     image: "src/assets/img/book.png",
     link: "https://github.com/Robert-Linguraru/Bulky",
     github: "https://github.com/Robert-Linguraru/Bulky",
-    tags: ["HTML", "CSS", "Javascript" ]
+    tags: ["C#", ".Net", "HTML/CSS/JS" ]
   }
 ];
 
 export const certificates: Certificate[] = [
   {
     name: "Web Development Fundamentals",
-    image: "/images/certificate-1.png",
     issuedBy: "MateAcademy",
+    type: "web"
+  },
+  {
+    name: "React Basics",
+    issuedBy: "Udemy",
+    type: "react"
   },
   {
     name: "C# Programming Basics",
-    image: "/images/certificate-2.png",
     issuedBy: "Udemy",
+    type: "csharp"
   },  
   {
     name: "ASP.NET Core MVC, EF Core and ASP.NET Core Identity",
-    image: "/images/certificate-2.png",
     issuedBy: "Udemy",
+    type: "dotnet"
   },
+  {
+    name: "Aws",
+    issuedBy: "Amazon",
+    type: "aws"
+  }
 ];
 
 export const techStack: TechStack[] = [
@@ -149,5 +160,15 @@ export const techStack: TechStack[] = [
     id: "10",
     name: "C#",
     iconComponent: IconCSharp,
+  },
+  {
+    id: "11",
+    name: "Python",
+    iconComponent: IconPython,
+  },
+  {
+    id: "12",
+    name: ".Net",
+    iconComponent: IconDotnet,
   }
 ];

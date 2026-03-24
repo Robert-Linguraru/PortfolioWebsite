@@ -38,7 +38,7 @@ const Navbar = () => {
           className="text-2xl font-bold bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
           whileHover={{ scale: 1.05 }}
         >
-          your_name
+          Robert Claudiu
         </motion.button>
 
         {/* Navigation Links - Right Aligned */}

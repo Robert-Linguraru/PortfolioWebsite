@@ -65,7 +65,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm flex items-center gap-2">
-            © {currentYear} Robert Claudiu. Made with React / TS / Tailwind / Framer Motion 
+            © {currentYear} Robert Claudiu. 
           </p>
           
           {/* Back to Top Button */}

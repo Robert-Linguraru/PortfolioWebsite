@@ -21,16 +21,19 @@ const DevJoke = () => {
     return JOKES[randomIndex];
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [barKey, setBarKey] = useState(0);
   
 
-  const getRandomJoke = useCallback(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const randomIndex = Math.floor(Math.random() * JOKES.length);
-      setJoke(JOKES[randomIndex]);
-      setIsLoading(false);
-    }, 300);
-  }, []);
+const getRandomJoke = useCallback(() => {
+  setIsLoading(true);
+  setTimeout(() => {
+    const randomIndex = Math.floor(Math.random() * JOKES.length);
+    setJoke(JOKES[randomIndex]);
+    setIsLoading(false);
+    setBarKey(prev => prev + 1); // 🍰 increment key to reset bar!
+  }, 300);
+}, []);
+
 
   useEffect(() => {
     // Auto-refresh every 15 seconds
@@ -79,15 +82,16 @@ const DevJoke = () => {
       <div className="flex items-center gap-2">
         <div className="flex-1 h-0.5 bg-slate-700/50 rounded-full overflow-hidden">
           <motion.div
+            key={barKey}
             className="h-full bg-linear-to-r from-purple-400 to-blue-400"
             initial={{ width: '0%' }}
             animate={{ width: '100%' }}
             transition={{ duration: 15, ease: 'linear', repeat: Infinity }}
           />
-        </div>
-        <span className="text-slate-500 text-[10px]">Next in 15s</span>
-      </div>
-    </motion.div>
+            </div>
+              <span className="text-slate-500 text-[10px]">Next in 15s</span>
+            </div>
+          </motion.div>
   );
 };
 
