@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 import { useState, useEffect } from 'react';
 import { Particles } from '@/assets/ui/Particles';
 import LoadingScreen from '@/assets/components/LoadingScreen';
