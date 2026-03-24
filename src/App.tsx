@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next"
 import { useState, useEffect } from 'react';
 import { Particles } from '@/assets/ui/Particles';
 import LoadingScreen from '@/assets/components/LoadingScreen';
@@ -79,6 +80,7 @@ function App() {
             <PortfolioShowcase />
             <ContactSection />
             <Footers />
+            <Analytics />
           </>
         )}
       </div>
